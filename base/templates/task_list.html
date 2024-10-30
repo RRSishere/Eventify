@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Event</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            flex: 1 0 300px;
+        }
+        
+        .card h2 {
+            margin-top: 0;
+        }
+        
+        .card p {
+            margin-bottom: 10px;
+        }
+        
+        .card p:last-child {
+            margin-bottom: 0;
+        }
+        
+        .no-items {
+            flex: 1 0 100%;
+            text-align: center;
+        }
+        
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>My Event</h1>
+        <div class="card-container">
+            {% for task in object_list %}
+            <div class="card">
+                <h2>{{ task.name }}</h2>
+                <p><strong>Date:</strong> {{ task.date_is_here }}</p>
+                <p><strong>Website Link:</strong> <a href="{{ task.website_link }}" target="_blank">{{ task.website_link }}</a></p>
+                <p><strong>Description:</strong> {{ task.description }}</p>
+            </div>
+            {% empty %}
+            <div class="no-items">
+                <p>No items in list</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
