@@ -1,0 +1,96 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>ContactUs</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        *{
+            margin: 0%;
+            padding: 0%;
+            box-sizing: border-box;
+        }
+        
+        body{
+            background-color: black;
+            font-family: sans-serif;
+        }
+        
+        .header{
+            display: flex;
+        }
+        
+        .image{
+            top: 0%;
+            left: 0%;
+            width: 70px;
+            height: 50px;
+        }
+        
+        .name{
+            top: 25px;
+            left: 70px;
+            color: white;
+            font-size: medium;
+            padding-top: 20px;
+        }
+        
+        .main{
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .maincontent{
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .heroimg{
+            width: 200px;
+            height: 200px;
+            margin-left: 42.5%;
+        }
+        
+        .content{
+            font-family: Silka, sans-serif;
+        }
+        
+        .heading{
+            color: rgb(194, 244, 71);
+            font-size: 35px;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .lines{
+            color: white;
+            font-size: 14px;
+            text-align: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="maincontent">
+        <div class="header">
+            <img src="{% static 'homepage/LOGO1.png' %}" class="image">
+            <p class="name">EVENTIFY</p>
+        </div>
+        <div class="main">
+            <img src="{% static 'homepage/pageimg.jpg' %}" class="heroimg">
+            <div class="content">
+                <p class="heading">Hello There</p>
+                <p class="lines">Questions, suggestions, ideas and feedback - shoot a message<br>
+                    with whatever you'd like to share with the <i><b>eventify</b></i> team. <br>
+                    (We don't mind the occasional pat on the back!) <br><br>
+                    Contact US at:<br>
+                    <u>hp5665@srmist.edu.in</u><br>
+                    <u>kr5846@srmist.edu.in</u><br>
+                    <u>av9959@srmist.edu.in</u>
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
