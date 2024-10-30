@@ -1,0 +1,183 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventify</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Platypi:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .navbar {
+            height: 70px;
+            background-color: #111111;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+        
+        .logo {
+            display: flex;
+            justify-content: flex-start;
+        }
+        
+        .rsec {
+            display: flex;
+            height: 70px;
+            width: 50%;
+            margin-bottom: 50px;
+        }
+        
+        .rsec button a {
+            text-decoration: none;
+            color: black;
+        }
+        
+        .icon {
+            height: 50px;
+            width: auto;
+        }
+        
+        .sign-in {
+            background-color: white;
+            color: black;
+            border: 2px solid #111111;
+            height: 70px;
+            width: 400px;
+            border-radius: 30px;
+            cursor: pointer;
+            margin-right: 8px;
+        }
+        
+        .sign-in:hover {
+            border-color: orange;
+        }
+        .hero {
+            background-image: url({% static 'homepage/background.jpg' %});
+            width: 100%;
+            height: 600px;
+            background-position: center;
+            background-size: cover;
+        }
+        
+        .heromsg{
+            width: 100%;
+            height: 600px;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: end;
+        }
+        
+        .rsec1{
+            margin-left: 10px;
+        }
+        
+        .rsec2{
+            justify-content: flex-end;
+            margin-right: 10px;
+        }
+
+        .rsec button a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .log-out {
+            color: black; /* Change text color to black */
+            background-color: white;
+            border: 2px solid #111111;
+            height: 36px;
+            width: 100px;
+            border-radius: 30px;
+            cursor: pointer;
+            margin-right: 8px;
+            font-size: 16px; /* Adjust the font size if needed */
+            display: flex-end;
+        }
+        
+        .log-out:hover {
+            border-color: orange;
+        }
+        
+        login{
+            height: 70px;
+            display: flex;
+        }
+        
+        button{
+            font-size: 30px;
+            font-weight: 500;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        
+        footer {
+            margin-top: 20px;
+            background-color: #0f1111;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            bottom: 0;
+        }
+        
+        .pages a {
+            color: white;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+        
+        .pages a:hover {
+            text-decoration: underline;
+        }
+        
+    </style>
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <img src="{% static 'homepage/LOGO1.png' %}" class="icon">
+            </div>
+            <div class="loging">
+                <form action="{% url 'logout' %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="log-out">Log Out</button>
+                </form>
+            </div>
+        </div> 
+    </header>
+    <div class="hero">
+        <div class="heromsg">
+            <div class="rsec1 rsec">
+                <button class="sign-in"><a href="{% url 'scrape_links' %}">Search</a></button>
+            </div>
+            <div class="rsec2 rsec">
+                <button class="sign-in"><a href="{% url 'task-create' %}">Add-Event</a></button>
+            </div>
+            <div class="rsec2 rsec">
+                <button class="sign-in"><a href="{% url 'tasks' %}">SRM EVENTS</a></button>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="foot-panel4">
+            <div class="pages">
+                <a href="#">About Us</a>
+                <a href="{% url 'contactus' %}">Contact Us</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
